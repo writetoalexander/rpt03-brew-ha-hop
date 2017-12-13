@@ -12,7 +12,7 @@ let brewerySchema = mongoose.Schema({
 let Brewery = mongoose.model('Brewery', brewerySchema);
 
 mongoose.connection.on('connected', function(err) {
-  console.log('hitting that database!');
+  console.log('database connected!');
 });
 
 mongoose.connection.on('error', function(err) {
