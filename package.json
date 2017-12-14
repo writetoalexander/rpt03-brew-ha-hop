@@ -12,6 +12,7 @@
     "axios": "^0.17.1",
     "babel-cli": "^6.26.0",
     "body-parser": "^1.18.2",
+    "brewerydb-node": "0.0.1",
     "express": "^4.16.2",
     "jquery": "^3.2.1",
     "mongoose": "^4.13.7",
