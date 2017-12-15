@@ -37,7 +37,11 @@ app.post('/brews', function(req, res) {
     } else {
       //console.log('post successful heres the data', data)
       for (var i = 0; i < 4; i ++) {
-        result.push(data[random.randomBeer(0, data.length - 1)]);
+        var brew = data[random.randomBeer(0, data.length - 1)]
+        //result.push(data[random.randomBeer(0, data.length - 1)]);
+        if (!result.includes(brew)) {
+          result.push(brew)
+        }
       }
 
       for (var i = 0; i < result.length; i++) {
