@@ -1641,6 +1641,10 @@ var _wishList = __webpack_require__(36);
 
 var _wishList2 = _interopRequireDefault(_wishList);
 
+var _sampledList = __webpack_require__(56);
+
+var _sampledList2 = _interopRequireDefault(_sampledList);
+
 var _axios = __webpack_require__(37);
 
 var _axios2 = _interopRequireDefault(_axios);
@@ -1736,10 +1740,11 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           null,
-          ' Search Beers '
+          ' BREW HA HOP '
         ),
         _react2.default.createElement(_wishList2.default, { beers: this.state.beers, mark: this.markAsSampled.bind(this), description: this.getDescription.bind(this) }),
-        _react2.default.createElement(_search2.default, { onSearch: this.search.bind(this) })
+        _react2.default.createElement(_search2.default, { onSearch: this.search.bind(this) }),
+        _react2.default.createElement(_sampledList2.default, { beers: this.state.beers, describe: this.getDescription.bind(this) })
       );
     }
   }]);
@@ -30350,6 +30355,118 @@ module.exports = function spread(callback) {
   };
 };
 
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(37);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Sampled = function (_React$Component) {
+  _inherits(Sampled, _React$Component);
+
+  function Sampled(props) {
+    _classCallCheck(this, Sampled);
+
+    var _this = _possibleConstructorReturn(this, (Sampled.__proto__ || Object.getPrototypeOf(Sampled)).call(this, props));
+
+    _this.state = {
+      sampledBeers: []
+    };
+    return _this;
+  }
+
+  _createClass(Sampled, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      console.log('component in sampled mounting');
+      this.listSampled();
+    }
+
+    // getDescription(item) {
+    //   console.log (item);
+    //   window.alert(item.beerDescription);
+
+    // }
+
+  }, {
+    key: 'listSampled',
+    value: function listSampled() {
+      var _this2 = this;
+
+      console.log('inside listSampled');
+      _axios2.default.get('http://localhost:3000/brews').then(function (response) {
+        var collection = [];
+        console.log('response.data in listSampled ', response.data);
+        response.data.map(function (beer) {
+          if (beer.sampled === true) {
+            collection.push(beer);
+          }
+        });
+        _this2.setState({ sampledBeers: collection });
+      }).catch(function (err) {
+        return console.log('party foul!', err);
+      });
+      console.log('sampledBeers looks like', this.state.sampledBeers);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h3',
+          null,
+          'List of Sampled Beers'
+        ),
+        _react2.default.createElement(
+          'ul',
+          null,
+          this.state.sampledBeers.map(function (beer) {
+
+            return _react2.default.createElement(
+              'li',
+              { key: beer.beerId },
+              _react2.default.createElement(
+                'a',
+                null,
+                beer.beerName
+              )
+            );
+          })
+        )
+      );
+    }
+  }]);
+
+  return Sampled;
+}(_react2.default.Component);
+
+exports.default = Sampled;
 
 /***/ })
 /******/ ]);

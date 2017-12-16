@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Search from './components/search.jsx';
 import WishList from './components/wishList.jsx';
+import Sampled from './components/sampledList.jsx';
 import axios from 'axios';
 
 class App extends React.Component {
@@ -73,9 +74,10 @@ class App extends React.Component {
 
   render() {
     return (<div>
-        <h1> Search Beers </h1>
+        <h1> BREW HA HOP </h1>
         <WishList beers={this.state.beers} mark={this.markAsSampled.bind(this)} description={this.getDescription.bind(this)}/>
         <Search onSearch={this.search.bind(this)}/>
+        <Sampled beers={this.state.beers} describe={this.getDescription.bind(this)}/>
       </div>)
   }
 }
