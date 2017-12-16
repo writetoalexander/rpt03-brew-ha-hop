@@ -1688,6 +1688,12 @@ var App = function (_React$Component) {
       console.log('succesful post from client');
     }
   }, {
+    key: 'getDescription',
+    value: function getDescription(item) {
+      console.log(item);
+      window.alert(item.beerDescription);
+    }
+  }, {
     key: 'markAsSampled',
     value: function markAsSampled(item) {
       // console.log('what item looks like in markAsSampled ', item.sampled);
@@ -1732,7 +1738,7 @@ var App = function (_React$Component) {
           null,
           ' Search Beers '
         ),
-        _react2.default.createElement(_wishList2.default, { beers: this.state.beers, mark: this.markAsSampled.bind(this) }),
+        _react2.default.createElement(_wishList2.default, { beers: this.state.beers, mark: this.markAsSampled.bind(this), description: this.getDescription.bind(this) }),
         _react2.default.createElement(_search2.default, { onSearch: this.search.bind(this) })
       );
     }
@@ -29413,7 +29419,7 @@ var WishList = function WishList(props) {
     _react2.default.createElement(
       'h4',
       null,
-      ' Wish List Component '
+      ' Wish List '
     ),
     'Gotta try ',
     props.beers.length,
@@ -29438,6 +29444,14 @@ var WishList = function WishList(props) {
                 props.mark(beer);
               } },
             'save'
+          ),
+          ' ',
+          _react2.default.createElement(
+            'button',
+            { onClick: function onClick() {
+                props.description(beer);
+              } },
+            'get description'
           )
         );
       })

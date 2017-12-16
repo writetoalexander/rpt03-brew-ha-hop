@@ -33,6 +33,12 @@ class App extends React.Component {
     console.log('succesful post from client');
   }
 
+  getDescription(item) {
+    console.log (item);
+    window.alert(item.beerDescription);
+
+  }
+
   markAsSampled(item) {
     // console.log('what item looks like in markAsSampled ', item.sampled);
     //item.sampled = true
@@ -68,7 +74,7 @@ class App extends React.Component {
   render() {
     return (<div>
         <h1> Search Beers </h1>
-        <WishList beers={this.state.beers} mark={this.markAsSampled.bind(this)}/>
+        <WishList beers={this.state.beers} mark={this.markAsSampled.bind(this)} description={this.getDescription.bind(this)}/>
         <Search onSearch={this.search.bind(this)}/>
       </div>)
   }
