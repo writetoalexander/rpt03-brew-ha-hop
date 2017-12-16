@@ -1,6 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
+const styles = {
+  color: 'OrangeRed',
+  fontWeight: 'bold'
+}
+
 class Sampled extends React.Component {
   constructor (props) {
     super(props);
@@ -38,7 +43,7 @@ class Sampled extends React.Component {
   }
 
   render() {
-    return(<div>
+    return(<div style={styles}>
       <h3>List of Sampled Beers</h3>
       <ul>
         {this.state.sampledBeers.map((beer) => {

@@ -6,6 +6,27 @@ import WishList from './components/wishList.jsx';
 import Sampled from './components/sampledList.jsx';
 import axios from 'axios';
 
+
+
+let imageUrl = 'https://gallery.yopriceville.com/var/albums/Backgrounds/Beers_and_Beer_Wooden_Barrel_Background.jpg?m=1439288131'
+
+const styles = {
+  color: 'orange',
+
+  fontWeight: 'bold'
+}
+
+const background ={
+  backgroundImage: 'url(' + imageUrl + ')',
+  backgroundRepeat: 'noRepeat',
+  backgroundSize: 'cover',
+  backgroundPosition: 'left'
+
+}
+
+
+const reactNode = <div style={styles}>test</div>
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -53,7 +74,10 @@ class App extends React.Component {
     // });
 
     console.log('success in markAsSampled');
+    this.render();
   }
+
+
 
   beerRun() {
     axios.get('http://localhost:3000/brews')
@@ -73,8 +97,8 @@ class App extends React.Component {
 
 
   render() {
-    return (<div>
-        <h1> BREW HA HOP </h1>
+    return (<div style={background} >
+        <h1> <div style={styles}>BREW HA HOP </div> </h1>
         <WishList beers={this.state.beers} mark={this.markAsSampled.bind(this)} description={this.getDescription.bind(this)}/>
         <Search onSearch={this.search.bind(this)}/>
         <Sampled beers={this.state.beers} describe={this.getDescription.bind(this)}/>

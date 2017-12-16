@@ -1,5 +1,10 @@
 import React from 'react';
 
+const styles = {
+  color: 'orange',
+  fontWeight: 'bold'
+}
+
 class Search extends React.Component {
   constructor (props) {
     super(props);
@@ -20,11 +25,11 @@ class Search extends React.Component {
   }
 
   render() {
-    return (<div>
-      <h4>Try Something New!</h4>
-      Search Beers: <input value={this.state.terms} onChange={this.onChange.bind(this)}/>
-      <button onClick={this.search.bind(this)}>
-        Time For a Beer Run </button>
+    return (<div styles={styles}>
+      <h4></h4>
+        <input value={this.state.terms} onChange={this.onChange.bind(this)}/>
+            <button onClick={this.search.bind(this)}>
+         Time For a Beer Run </button>
     </div>)
   }
 }

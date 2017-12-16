@@ -1657,6 +1657,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var imageUrl = 'https://gallery.yopriceville.com/var/albums/Backgrounds/Beers_and_Beer_Wooden_Barrel_Background.jpg?m=1439288131';
+
+var styles = {
+  color: 'orange',
+
+  fontWeight: 'bold'
+};
+
+var background = {
+  backgroundImage: 'url(' + imageUrl + ')',
+  backgroundRepeat: 'noRepeat',
+  backgroundSize: 'cover',
+  backgroundPosition: 'left'
+
+};
+
+var reactNode = _react2.default.createElement(
+  'div',
+  { style: styles },
+  'test'
+);
+
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -1711,6 +1733,7 @@ var App = function (_React$Component) {
       // });
 
       console.log('success in markAsSampled');
+      this.render();
     }
   }, {
     key: 'beerRun',
@@ -1736,11 +1759,17 @@ var App = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: background },
         _react2.default.createElement(
           'h1',
           null,
-          ' BREW HA HOP '
+          ' ',
+          _react2.default.createElement(
+            'div',
+            { style: styles },
+            'BREW HA HOP '
+          ),
+          ' '
         ),
         _react2.default.createElement(_wishList2.default, { beers: this.state.beers, mark: this.markAsSampled.bind(this), description: this.getDescription.bind(this) }),
         _react2.default.createElement(_search2.default, { onSearch: this.search.bind(this) }),
@@ -29347,6 +29376,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var styles = {
+  color: 'orange',
+  fontWeight: 'bold'
+};
+
 var Search = function (_React$Component) {
   _inherits(Search, _React$Component);
 
@@ -29378,13 +29412,8 @@ var Search = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(
-          'h4',
-          null,
-          'Try Something New!'
-        ),
-        'Search Beers: ',
+        { styles: styles },
+        _react2.default.createElement('h4', null),
         _react2.default.createElement('input', { value: this.state.terms, onChange: this.onChange.bind(this) }),
         _react2.default.createElement(
           'button',
@@ -29417,10 +29446,15 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var styles = {
+  color: 'orange',
+  fontWeight: 'bold'
+};
+
 var WishList = function WishList(props) {
   return _react2.default.createElement(
     'div',
-    null,
+    { style: styles },
     _react2.default.createElement(
       'h4',
       null,
@@ -30385,6 +30419,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var styles = {
+  color: 'OrangeRed',
+  fontWeight: 'bold'
+};
+
 var Sampled = function (_React$Component) {
   _inherits(Sampled, _React$Component);
 
@@ -30437,7 +30476,7 @@ var Sampled = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: styles },
         _react2.default.createElement(
           'h3',
           null,
