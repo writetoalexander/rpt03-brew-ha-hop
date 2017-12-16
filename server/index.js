@@ -7,7 +7,7 @@ const port = 3000;
 const key = require('../config.js')
 const BreweryDb = require('brewerydb-node');
 const request = require('request');
-let random = require('../helpers/randomIndex.js');
+let helper = require('../helpers/helperFunctions.js');
 
 
 let result = [];
@@ -24,21 +24,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 let brewdb = new BreweryDb(key.TOKEN);
 
 app.post('/brews', function(req, res) {
-  console.log('post happening!');
-  //console.log('key looks like', key.TOKEN);
+  console.log('post happening! req.body looks like', req.body);
+
+  if (req.body.a) {
+    //console.log('helper update lookes like', helper.updateBeer)
+    helper.updateBeer(req.body.a);
+
+  } else {
 
 
   brewdb.search.beers({q: req.body.q}, function(err, data) {
     result = [];
     console.log('query looks like', req.body.q);
+
     if (err) {
       console.log('err in post ', err);
       res.status(404).send('oops');
     } else {
-      //console.log('post successful heres the data', data)
+
       for (var i = 0; i < 4; i ++) {
-        var brew = data[random.randomBeer(0, data.length - 1)]
-        //result.push(data[random.randomBeer(0, data.length - 1)]);
+        var brew = data[helper.randomBeer(0, data.length - 1)]
         if (!result.includes(brew)) {
           result.push(brew)
         }
@@ -50,7 +55,10 @@ app.post('/brews', function(req, res) {
       console.log('result looks like', result[0])
       res.status(200).json(result);
     }
+
   })
+
+}
 
   //brewdb.search.beers({q: req.body.query})
 

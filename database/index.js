@@ -6,7 +6,8 @@ let beerSchema = mongoose.Schema({
   beerName: String,
   beerDescription: String,
   beerCategory: String,
-  beerAbv: String
+  beerAbv: String,
+  sampled: Boolean
 
 });
 //update this schema after getting repsonse from api
@@ -27,7 +28,8 @@ let write = (item) => {
     beerName: item.name,
     beerDescription: item.description,
     beerCategory: item.style.category.name,
-    beerAbv: item.Abv
+    beerAbv: item.Abv,
+    sampled: false
   })
   Beer.findOne({ beerName: item.name }, function(err, success) {
     if (err) {
