@@ -1,8 +1,13 @@
 import React from 'react';
 
+const ul = {
+  listStyle: 'none'
+}
+
 const styles = {
   color: 'orange',
-  fontWeight: 'bold'
+  fontWeight: 'bold',
+  fontFamily: 'Avenir'
 }
 
 const WishList = (props) => (
@@ -13,7 +18,7 @@ const WishList = (props) => (
     <ul>
     {props.beers.map((beer) => {
 
-      return <li key={beer.beerId}><a>{beer.beerName}</a> <button onClick={function(){props.mark(beer)}}>save</button> <button onClick={function(){props.description(beer)}}>get description</button></li>
+      return <li style={ul}key={beer.beerId}><a>{beer.beerName}</a> <button onClick={function(){props.mark(beer)}}>save</button> <button onClick={function(){props.description(beer)}}>get description</button></li>
 
 
 

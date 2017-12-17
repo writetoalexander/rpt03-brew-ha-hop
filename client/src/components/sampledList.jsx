@@ -1,9 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 
+const ul = {
+  listStyle: 'none'
+}
+
 const styles = {
-  color: 'OrangeRed',
-  fontWeight: 'bold'
+  color: 'DarkOrange',
+  fontWeight: 'bold',
+  fontFamily: 'Avenir'
+
 }
 
 class Sampled extends React.Component {
@@ -48,7 +54,7 @@ class Sampled extends React.Component {
       <ul>
         {this.state.sampledBeers.map((beer) => {
 
-          return <li key={beer.beerId}><a>{beer.beerName}</a></li>
+          return <li style={ul}key={beer.beerId}><a>{beer.beerName}</a></li>
 
         })}
       </ul>

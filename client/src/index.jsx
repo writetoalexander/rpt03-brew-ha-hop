@@ -12,7 +12,6 @@ let imageUrl = 'https://gallery.yopriceville.com/var/albums/Backgrounds/Beers_an
 
 const styles = {
   color: 'orange',
-
   fontWeight: 'bold'
 }
 
@@ -97,7 +96,7 @@ class App extends React.Component {
 
 
   render() {
-    return (<div style={background} >
+    return (<div style={background}>
         <h1> <div style={styles}>BREW HA HOP </div> </h1>
         <WishList beers={this.state.beers} mark={this.markAsSampled.bind(this)} description={this.getDescription.bind(this)}/>
         <Search onSearch={this.search.bind(this)}/>

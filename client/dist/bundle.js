@@ -1661,7 +1661,6 @@ var imageUrl = 'https://gallery.yopriceville.com/var/albums/Backgrounds/Beers_an
 
 var styles = {
   color: 'orange',
-
   fontWeight: 'bold'
 };
 
@@ -29446,9 +29445,14 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var ul = {
+  listStyle: 'none'
+};
+
 var styles = {
   color: 'orange',
-  fontWeight: 'bold'
+  fontWeight: 'bold',
+  fontFamily: 'Avenir'
 };
 
 var WishList = function WishList(props) {
@@ -29470,7 +29474,7 @@ var WishList = function WishList(props) {
 
         return _react2.default.createElement(
           'li',
-          { key: beer.beerId },
+          { style: ul, key: beer.beerId },
           _react2.default.createElement(
             'a',
             null,
@@ -30419,9 +30423,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var ul = {
+  listStyle: 'none'
+};
+
 var styles = {
-  color: 'OrangeRed',
-  fontWeight: 'bold'
+  color: 'DarkOrange',
+  fontWeight: 'bold',
+  fontFamily: 'Avenir'
+
 };
 
 var Sampled = function (_React$Component) {
@@ -30489,7 +30499,7 @@ var Sampled = function (_React$Component) {
 
             return _react2.default.createElement(
               'li',
-              { key: beer.beerId },
+              { style: ul, key: beer.beerId },
               _react2.default.createElement(
                 'a',
                 null,
